@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  View,
-  Text,
-} from 'react-native';
+  FlatList,
+} from 'react-native'
+
+import Todo from '../Todo';
 
 class TodoList extends Component {
+  _renderItem = ({item}) => {
+    return <Todo {...item} />
+  }
+
   render() {
     return (
-      <Text>Þetta er TodoList</Text>
+      <FlatList
+        data={this.props.todos}
+        renderItem={this._renderItem}
+        keyExtractor={({id}) => id}
+      />
     );
   }
 }
 
-export default TodoList;
+export default TodoList
