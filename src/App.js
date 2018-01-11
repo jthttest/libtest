@@ -6,13 +6,13 @@ import {
   View
 } from 'react-native';
 
+import TodoList from './components/TodoList';
+
 export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          hello world þetta virkar
-        </Text>
+        <TodoList />
       </View>
     );
   }
