@@ -3,6 +3,7 @@ import {
   FlatList,
 } from 'react-native'
 
+import styles from './style';
 import Todo from '../Todo';
 
 class TodoList extends Component {
@@ -16,6 +17,7 @@ class TodoList extends Component {
         data={this.props.todos}
         renderItem={this._renderItem}
         keyExtractor={({id}) => id}
+        style={styles.todoList}
       />
     );
   }

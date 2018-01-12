@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Platform,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 
-import TodoList from './components/TodoList';
+import Header from './components/Header'
+import TodoList from './components/TodoList'
+import Filter from './components/Filter';
 
 const mockState = {
   visibilityFilter: 'SHOW_ALL',
@@ -43,7 +45,9 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
+        <Header />
         <TodoList todos={mockState.todos}/>
+        <Filter />
       </View>
     );
   }
