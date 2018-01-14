@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     borderWidth: 1,
+    marginLeft: 5,
   }
 })
 

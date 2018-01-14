@@ -1,3 +1,5 @@
+console.ignoredYellowBox = ['Remote debugger']
+
 import React, { Component } from 'react'
 import {
   Platform,
@@ -5,50 +7,47 @@ import {
   Text,
   View
 } from 'react-native'
+// import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
+import configureStore from './configureStore'
+// import { logger } from 'redux-logger'
+
+// import todoApp from './reducers'
+// import { addTodo } from './actions'
+// let store = createStore(
+//   todoApp,
+//   applyMiddleware(logger)
+// )
+let store = configureStore({})
+
+
 
 import Header from './components/Header'
 import TodoList from './components/TodoList'
 import Filter from './components/Filter';
 
-const mockState = {
-  visibilityFilter: 'SHOW_ALL',
-  todos: [
-    {
-      text: 'Consider using Redux',
-      completed: true,
-      id: 0
-    },
-    {
-      text: 'Keep all state in a single tree',
-      completed: false,
-      id: 1
-    },
-    {
-      text: 'Consider using reselect',
-      completed: true,
-      id: 2
-    },
-    {
-      text: 'Consider using sagas',
-      completed: false,
-      id: 3
-    },
-    {
-      text: 'Consider using ...',
-      completed: false,
-      id: 4
-    },
-  ]
-};
+// const dummyTodos = [
+//   'Consider using Redux',
+//   'Keep all state in a single tree',
+//   'Consider using reselect',
+//   'Consider using sagas',
+//   'Consider using logger'
+// ]
+//
+// dummyTodos.forEach(text => {
+//   store.dispatch(addTodo(text))
+// })
 
 export default class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Header />
-        <TodoList todos={mockState.todos}/>
-        <Filter />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Header />
+          <TodoList />
+          <Filter />
+        </View>
+      </Provider>
     );
   }
 }

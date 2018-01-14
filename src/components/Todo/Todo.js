@@ -7,16 +7,11 @@ import {
 import styles from './style';
 
 class Todo extends Component {
-  static defaultProps = {
-    text: 'This is a Todo',
-    completed: false,
-  };
-
   render() {
-    const {text, completed, id} = this.props;
+    const {text, completed, onPress} = this.props;
     return (
       <TouchableOpacity
-        onPress={() => console.log(`todo #${id} pressed`)}
+        onPress={onPress}
       >
         <Text
           style={[
