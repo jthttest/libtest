@@ -7,48 +7,45 @@ import {
   Text,
   View
 } from 'react-native'
-// import { applyMiddleware, createStore } from 'redux'
-import { Provider } from 'react-redux'
-import configureStore from './configureStore'
-// import { logger } from 'redux-logger'
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
-// import todoApp from './reducers'
-// import { addTodo } from './actions'
-// let store = createStore(
-//   todoApp,
-//   applyMiddleware(logger)
-// )
-let store = configureStore({})
+import TodoApp from './components/TodoApp'
+import Home from './components/Home'
+import Reddit from './components/Reddit'
+import News from './components/News'
 
-
-
-import Header from './components/Header'
-import TodoList from './components/TodoList'
-import Filter from './components/Filter';
-
-// const dummyTodos = [
-//   'Consider using Redux',
-//   'Keep all state in a single tree',
-//   'Consider using reselect',
-//   'Consider using sagas',
-//   'Consider using logger'
-// ]
-//
-// dummyTodos.forEach(text => {
-//   store.dispatch(addTodo(text))
+// const RootNavigator = StackNavigator({
+//   Home: {
+//     screen: Home
+//   },
+//   Todo: {
+//     screen: TodoApp
+//   }
 // })
+
+const RootNavigator = DrawerNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      drawerLabel: 'Fucko'
+    }
+  },
+  Todo: {
+    screen: TodoApp
+  },
+  News: {
+    screen: News
+  },
+  Reddit: {
+    screen: Reddit
+  }
+});
 
 export default class App extends Component<{}> {
   render() {
     return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <Header />
-          <TodoList />
-          <Filter />
-        </View>
-      </Provider>
-    );
+      <RootNavigator />
+    )
   }
 }
 
@@ -56,4 +53,4 @@ const styles = StyleSheet.create({
   container: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
   }
-});
+})

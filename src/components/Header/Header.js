@@ -18,11 +18,11 @@ class Header extends Component {
         <TextInput
           style={styles.textInput}
           onChangeText={text => this.setState({text})}
-          autoCorrect={true}
-          placeholder={'Add a todo'}
+          autoCorrect={false}
+          placeholder={'New todo'}
         />
         <Button
-          title='add'
+          title='Bæta við'
           onPress={() => {
             this.props.onPress(this.state.text)
           }}
