@@ -1,15 +1,4 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Button,
-  TouchableWithoutFeedback,
-  Keyboard,
-  UIManager,
-  LayoutAnimation
-} from 'react-native'
 import { createStore, combineReducers, applyMiddleWare } from 'redux'
 import { Provider } from 'react-redux'
 
